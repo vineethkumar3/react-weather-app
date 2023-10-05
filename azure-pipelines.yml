@@ -14,7 +14,7 @@ stages:
   - job:
     displayName: 'Job to build the app'
     pool:
-      name: Build Agent
+      name: Release
 
     steps:
     - script: | 
