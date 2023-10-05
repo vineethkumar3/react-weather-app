@@ -18,7 +18,7 @@ stages:
 
     steps:
     - script: | 
-         npx
+         whoami
          #cp my-app $(Build.ArtifactStagingDirectory)
 
     - task: PublishPipelineArtifact@1
