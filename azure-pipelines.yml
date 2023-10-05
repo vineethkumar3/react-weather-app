@@ -18,8 +18,7 @@ stages:
 
     steps:
     - script: | 
-         node -v
-         #npx create-react-app my-app --use-npm
+         npx create-react-app my-app --use-npm
          #cp my-app $(Build.ArtifactStagingDirectory)
 
     - task: PublishPipelineArtifact@1
