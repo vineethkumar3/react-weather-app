@@ -1,0 +1,47 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+
+stages:
+- stage: Build
+  displayName: 'Building the react app'
+  jobs:
+  - job:
+    displayname: 'Job to build the app'
+    pool:
+      name: Build Agent
+
+    steps:
+    - script: | 
+         npx create-react-app my-app --use-npm
+         cp my-app $(Build.ArtifactStagingDirectory)
+
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifact: 'my-app'  # Specify a unique artifact name
+        displayName: 'Publish my-app artifact'
+        
+- stage: Release
+  displayName: 'release the react app'
+  jobs:
+  - job:
+    displayname: 'Pubish the app'
+    pool:
+      name: Release
+      
+    steps:
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          artifactName: 'my-app'  # Specify the same artifact name used in the TrivyScan stage
+          path: $(Build.ArtifactStagingDirectory)
+        displayName: 'Download my-app artifact'
+        
+      - script: |
+          cd my-app
+          npm run start
