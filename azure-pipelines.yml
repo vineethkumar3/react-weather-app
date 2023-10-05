@@ -18,7 +18,7 @@ stages:
 
     steps:
     - script: | 
-         npx create-react-app my-app --use-npm
+         npx
          #cp my-app $(Build.ArtifactStagingDirectory)
 
     - task: PublishPipelineArtifact@1
