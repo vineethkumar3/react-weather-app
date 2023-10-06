@@ -45,8 +45,3 @@ stages:
       - script: |
           cd my-app
           npm run start
-
-- task: Npm@1
-  inputs:
-    command: 'ci'
-    workingDir: 'my-app'
