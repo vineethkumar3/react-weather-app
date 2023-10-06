@@ -18,8 +18,6 @@ stages:
 
     steps:
     - script: | 
-         npm install -g npx
-         npm install
          npx create-react-app my-app --use-npm
          #cp my-app $(Build.ArtifactStagingDirectory)
 
