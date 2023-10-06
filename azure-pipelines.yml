@@ -44,5 +44,6 @@ stages:
         displayName: 'Download my-app artifact'
         
       - script: |
+          chmod 755 $(Build.ArtifactStagingDirectory)/my-app
           cd $(Build.ArtifactStagingDirectory)/my-app
           npm run start
