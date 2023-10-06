@@ -44,5 +44,6 @@ stages:
         displayName: 'Download my-app artifact'
         
       - script: |
+          pwd
           cd my-app
           npm run start
