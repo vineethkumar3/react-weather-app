@@ -19,7 +19,6 @@ stages:
     steps:
     - script: | 
          npx create-react-app my-app --use-npm
-         ls
          cp -r my-app $(Build.ArtifactStagingDirectory)
 
     - task: PublishPipelineArtifact@1
@@ -46,5 +45,5 @@ stages:
       - script: |
           chmod 777 $(Build.ArtifactStagingDirectory)/my-app
           cd $(Build.ArtifactStagingDirectory)/my-app
-          npm run start
+          ls
          
