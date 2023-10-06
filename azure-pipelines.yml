@@ -45,6 +45,6 @@ stages:
         
       - script: |
           chmod 777 $(Build.ArtifactStagingDirectory)/my-app
-          cd $(Build.ArtifactStagingDirectory)/
-          ls -la
+          cd $(Build.ArtifactStagingDirectory)/my-app
+          npm run start
          
