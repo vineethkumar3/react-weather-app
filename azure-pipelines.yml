@@ -43,6 +43,9 @@ stages:
         displayName: 'Download my-app artifact'
         
       - script: |
-          chmod -R 777 $(Build.ArtifactStagingDirectory)/my-app
-          cd $(Build.ArtifactStagingDirectory)/my-app
+          git clone git@github.com:vineethkumar3/react-weather-app.git
+          cp -r $(Build.ArtifactStagingDirectory)/my-app react-weather-app
+          cd react-weather-app
+          chmod -R 777 my-app
+          cd my-app
           npm run start
